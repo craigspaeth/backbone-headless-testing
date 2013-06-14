@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
 // Simple mock REST API
 // 
-// In a real app this would be refactored out into their own routing architecture
+// In a real app this would be refactored out into it's own routing architecture
 // using a real database. Integration tests would then want to have a conditional
 // here that swaps the API depending on the environment. This would allow you to 
 // easily swap a mock API used for tests so that you don't wait on a real DB and 
@@ -32,7 +32,20 @@ app.get('/', function(req, res) {
 // }
 // ````
 // 
-// To keep this example simple we'll just  use this in-memory API for both environments.
+// Or you may have a more Service-oriented architecture and have your API running 
+// on another server. In this case you would need to change which url the client 
+// app points to.
+// 
+// ````javascript
+// if(app.get('env') == 'test') {
+//   app.set('api url', 'http://localhost:5000);
+//   // Create a mock api server in your test helpers and run it on 5000 in a before block
+// } else {
+//   app.set('api url', 'http://api.my-app.com');
+// }
+// app.locals.API_URL = app.get('api url');
+// ````
+// To keep this example simple we'll just use this in-memory API for both environments.
 
 var todos = [
   { id: 0, title: 'Take out the trash', completed: false },
