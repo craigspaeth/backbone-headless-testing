@@ -14,6 +14,26 @@ app.get('/', function(req, res) {
 });
 
 // Simple mock REST API
+// 
+// In a real app this would be refactored out into their own routing architecture
+// using a real database. Integration tests would then want to have a conditional
+// here that swaps the API depending on the environment. This would allow you to 
+// easily swap a mock API used for tests so that you don't wait on a real DB and 
+// clobber actual data.
+// 
+// For instance a clean implementation of this could involve mounting your
+// API as it's own express app.
+// 
+// ````javascript
+// if(app.get('env') == 'test') {
+//   app.use('/api', require('./test/helpers/mock_api'));
+// } else {
+//   app.use('/api', require('./routes/api'));
+// }
+// ````
+// 
+// To keep this example simple we'll just  use this in-memory API for both environments.
+
 var todos = [
   { id: 0, title: 'Take out the trash', completed: false },
   { id: 1, title: 'Pick up milk', completed: true }
