@@ -1,0 +1,76 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+#todos li {
+  width: 400px;
+  position: relative;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #eee;
+}
+
+#todos li.completed {
+  color: green;
+  text-decoration: line-through;
+}
+
+#todos li.completed .complete-todo {
+  color: green !important;
+}
+
+.delete-todo {
+  background: none;
+  border: none;
+  font-size: 11px;
+  position: absolute;
+  right: 0;
+  color: rgb(179, 2, 2);
+  text-decoration: underline;
+  opacity: 0;
+  cursor: pointer;
+}
+
+li:hover .delete-todo {
+  opacity: 1;
+}
+
+.complete-todo {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 5px 0 0;
+  cursor: pointer;
+}
+
+.complete-todo:hover {
+  color: green;
+}
+
+#add-todo {
+  padding: 10px;
+  border: 1px solid #444;
+  width: 400px;
+  font-size: 14px;
+}
+
+#container {
+  width: 400px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 40px 0;
+}

@@ -1,0 +1,17 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    #container
+      h1 Your mandatory Todo JS app
+      #todos
+        ul.todos
+        input#add-todo( type='text', placeholder='What needs to be done?' )
+    #scripts
+      script( type='text/javascript', src='javascripts/vendor/jquery.js' )
+      script( type='text/javascript', src='javascripts/vendor/underscore.js' )
+      script( type='text/javascript', src='javascripts/vendor/backbone.js' )
+      script( type='text/javascript', src='javascripts/app.js' )
+      include templates.html

@@ -1,0 +1,9 @@
+<script id='todos-template' type='text/template'>
+  <% _.each(todos, function(todo) { %>
+    <li class='<%= todo.get('completed') ? 'completed' : '' %>' >
+      <button class='complete-todo'>✓</button>
+      <a><%= todo.get('title') %></a>
+      <button class='delete-todo'>Delete</button>
+    </li>
+  <% }); %>
+</script>
