@@ -1,6 +1,6 @@
 # backbone-headless-testing
 
-An example/bootstrap project that shows how to headlessly test a simple backbone app.
+An example/bootstrap project that shows how to headlessly test a simple backbone app using node.js.
 
 ## Getting Started
 
