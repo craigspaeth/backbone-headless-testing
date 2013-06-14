@@ -1,9 +1,10 @@
 var express = require('express')
   , path = require('path')
-  , _ = require('underscore')
-  , app = express();
+  , _ = require('underscore');
+module.exports = app = express();
 
 // Minimal express setup that renders an index page
+app.set('port', 4000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.bodyParser());
@@ -12,7 +13,7 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-// Simle mock REST API
+// Simple mock REST API
 var todos = [
   { id: 0, title: 'Take out the trash', completed: false },
   { id: 1, title: 'Pick up milk', completed: true }
@@ -45,4 +46,8 @@ app.delete('/api/todos/:id', function(req, res) {
   res.send({ success: true });
 });
 
-app.listen(4000, function(){ console.log('Listening on 4000') });
+// Start server unless its a test environment
+if(app.get('env') == 'test') return;
+app.listen(app.get('port'), function(){ 
+  console.log('Listening on ' + app.get('port'));
+});
