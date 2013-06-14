@@ -16,7 +16,7 @@ ul {
   position: relative;
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
 }
 
 #todos li.completed {

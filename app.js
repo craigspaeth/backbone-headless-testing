@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-// Simle API to mock a DB
+// Simle mock REST API
 var todos = [
   { id: 0, title: 'Take out the trash', completed: false },
   { id: 1, title: 'Pick up milk', completed: true }

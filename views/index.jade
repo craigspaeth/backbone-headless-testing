@@ -5,7 +5,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     #container
-      h1 Your mandatory Todo JS app
+      h1 Yet another Todo app in javascript
       #todos
         ul.todos
         input#add-todo( type='text', placeholder='What needs to be done?' )
@@ -14,4 +14,7 @@ html
       script( type='text/javascript', src='javascripts/vendor/underscore.js' )
       script( type='text/javascript', src='javascripts/vendor/backbone.js' )
       script( type='text/javascript', src='javascripts/app.js' )
+      script( type='text/javascript', src='javascripts/models/todo.js' )
+      script( type='text/javascript', src='javascripts/collections/todos.js' )
+      script( type='text/javascript', src='javascripts/views/todos_list_view.js' )
       include templates.html
