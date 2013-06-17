@@ -27,7 +27,7 @@ App.TodosListView = Backbone.View.extend({
   addTodo: function(e) {
     var todo = new App.Todo({ title: $(e.target).val() });
     this.todos.add(todo);
-    todo.save()
+    todo.save();
     $(e.target).val('').focus();
   },
   
