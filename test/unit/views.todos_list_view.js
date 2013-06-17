@@ -15,7 +15,7 @@ describe('TodosListView', function() {
       require('../../public/javascripts/collections/todos');
       require('../../public/javascripts/views/todos_list_view');
       
-      // Compile our server-side template and render it in the do
+      // Compile our server-side template and render it in jsdom
       var templateFilename = path.resolve(__dirname, '../../views/index.jade'),
           html = require('jade').compile(
             fs.readFileSync(templateFilename).toString(),
