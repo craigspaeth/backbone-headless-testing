@@ -1,5 +1,7 @@
 var clientenv = require('../helpers/client_env'),
-    sinon = require('sinon');
+    sinon = require('sinon'),
+    path = require('path'),
+    fs = require('fs');
 
 describe('TodosListView', function() {
   
@@ -7,9 +9,21 @@ describe('TodosListView', function() {
   
   beforeEach(function(done) {
     clientenv.setup(function() {
+      
+      // Require our app dependencies
       require('../../public/javascripts/models/todo');
       require('../../public/javascripts/collections/todos');
       require('../../public/javascripts/views/todos_list_view');
+      
+      // Compile our server-side template and render it in the do
+      var templateFilename = path.resolve(__dirname, '../../views/index.jade'),
+          html = require('jade').compile(
+            fs.readFileSync(templateFilename).toString(),
+            { filename: templateFilename }
+          )();
+      $('html').html(html);
+      
+      // Require our view and stub ajax
       view = new App.TodosListView();
       ajaxStub = sinon.stub($, 'ajax'),
       done();

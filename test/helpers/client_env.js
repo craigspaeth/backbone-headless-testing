@@ -14,16 +14,9 @@ var jsdom = require ('jsdom'),
 module.exports.setup = setup = function(callback) {
   if(typeof window != 'undefined') return callback(window);
   
-  // Compile our server-side template to be plugged into jsdom
-  var templateFilename = path.resolve(__dirname, '../../views/index.jade'),
-      html = require('jade').compile(
-        fs.readFileSync(templateFilename).toString(),
-        { filename: templateFilename }
-      )();
-  
   // Setup a jsdom env and globally expose window along with other libraries
   jsdom.env({
-    html: html,
+    html: "<html><body></body></html>",
     done: function(errs, window) {
       global.window = window;
       global.Backbone = require('../../public/javascripts/vendor/backbone.js');
